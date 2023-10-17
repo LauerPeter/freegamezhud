@@ -1,0 +1,20 @@
+
+
+{
+  "name": "mens-mental-forum",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm install && cd ../client && npm install"
+  },
+  "dependencies": {
+    "concurrently": "^6.3.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
+  }
+}
