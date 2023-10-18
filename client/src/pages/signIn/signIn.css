@@ -1,0 +1,26 @@
+
+
+.container {
+  margin-top: 5rem;
+}
+
+
+.col-md-6 {
+  text-align: center;
+}
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+
+button {
+  margin-top: 1rem;
+}
+
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
