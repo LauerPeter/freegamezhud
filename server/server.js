@@ -3,6 +3,8 @@
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const mongoose = require('mongoose');
+const routes = require('./routes');
+require('dotenv').config()
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,8 +24,9 @@ dbConnection.on('error', (error) => {
 dbConnection.once('open', () => {
   console.log('Connected to MongoDB database.');
 
-  // Express server 
-  app.listen(PORT, () => console.log(`Now listening on localhost: ${PORT}`));
+  app.use('/api', routes);
+
+app.listen(PORT, () => console.log(`Now listening on localhost: ${PORT}`));
 });
 
 app.use(express.urlencoded({ extended: true }));
