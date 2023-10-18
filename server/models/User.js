@@ -1,4 +1,7 @@
+const { Schema, model } = require('mongoose'); 
+const mongoose = require('mongoose');
 
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
   Uname: {
@@ -19,3 +22,19 @@ const userSchema = new Schema({
     minlength: 6,
   },
 });
+
+userSchema.method('verify', async function (pw) {
+  return await bcrypt.compare(pw, this.password);
+});
+
+userSchema.pre('save', async function (next) {
+  if (!this._id) {
+    this._id = new mongoose.Types.ObjectId();
+  }
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
+
+const User = model('User', userSchema);
+
+module.exports = User;
