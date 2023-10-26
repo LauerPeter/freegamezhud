@@ -2,14 +2,14 @@
 
 const mongoose = require('mongoose');
 
-const db = mongoose.connection;
+const MONGODB_URI = 'mongodb://127.0.0.1:27017/user-website';
 
-const MONGODB_URI = 'mongodb://127.0.0.1:27017/user-website'; 
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/user-website', {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+const db = mongoose.connection;
 
 db.on('error', (error) => {
   console.error('MongoDB connection error:', error);

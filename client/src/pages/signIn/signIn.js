@@ -4,6 +4,7 @@ import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Button, Container, Form, Col, Row } from 'react-bootstrap'; 
 import './signIn.css'
+
 function SignIn() {
   const [showSignUp, setShowSignUp] = useState(false);
 
@@ -11,13 +12,61 @@ function SignIn() {
     setShowSignUp(!showSignUp);
   };
 
-  const handleSignIn = () => {
-    // Implement the sign-in logic here 
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+
+    // Make an API request to the backend for sign-in
+    try {
+      const response = await fetch('/api/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ Uname: username, password }),
+      });
+
+      if (response.ok) {
+        // Sign-in successful
+        const data = await response.json();
+        // Store the JWT token or perform further actions
+      } else {
+        // Handle sign-in failure, e.g., show an error message
+      }
+    } catch (error) {
+      // Handle network or other errors
+    }
   };
 
-  const handleSignUp = () => {
-    // Implement the sign-up logic here 
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+
+    // Make an API request to the backend for sign-up
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ Uname: username, email, password }),
+      });
+
+      if (response.ok) {
+        // Sign-up successful
+        const data = await response.json();
+        // Store the JWT token or perform further actions
+      } else {
+        // Handle sign-up failure, e.g., show an error message
+      }
+    } catch (error) {
+      // Handle network or other errors
+    }
   };
+
 
   return (
     <Container className="mt-5">
