@@ -1,7 +1,5 @@
-
-
 {
-  "name": "mens-mental-forum",
+  "name": "my-website",
   "version": "1.0.0",
   "scripts": {
     "start": "node server/server.js",
