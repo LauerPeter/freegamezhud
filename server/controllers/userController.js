@@ -36,30 +36,41 @@ const userController = {
       const { email, password } = req.body;
       console.log('Provided email:', email);
       console.log('Provided password:', password);
-  
       // Find the user by their email
       const user = await User.findOne({ email });
       if (!user) {
         console.log('Signin: User not found');
         return res.status(401).json({ message: 'User not found.' });
       }
-  
       // Compare the provided password with the stored hashed password
       const isPasswordValid = await bcrypt.compare(password, user.password);
       console.log('Password validation result:', isPasswordValid);
-  
       if (!isPasswordValid) {
         console.log('Signin: Password invalid');
         return res.status(401).json({ message: 'Password is incorrect.' });
       }
-  
       console.log('Signin: Authentication successful');
       res.json({ userId: user._id, message: 'Authentication successful' });
     } catch (error) {
       console.error('Error in signin:', error);
       res.status(500).json({ message: 'Something went wrong.', error: error.message });
     }
-  }  
+  },
+
+  async deleteUser(req, res) {
+    try {
+      const userId = req.params.userId;
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found.' });
+      }
+      await User.findByIdAndRemove(userId);
+      res.status(200).json({ message: 'User deleted successfully.' });
+    } catch (error) {
+      console.error('Error in deleteUser:', error);
+      res.status(500).json({ message: 'Something went wrong.', error: error.message });
+    }
+  }
 };  
 
 module.exports = userController;
