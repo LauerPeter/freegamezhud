@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 const userController = {
+  
   async signup(req, res) {
     try {
       const { Uname, email, password } = req.body;
@@ -14,7 +15,7 @@ const userController = {
         return res.status(400).json({ message: 'Username or email already exists.' });
       }
       // Hash the password
-      const hashedPassword = await bcrypt.hash(password, 10);
+      const hashedPassword = await bcrypt.hash(password, 10); 
       // Create a new user record with the hashed password
       const newUser = new User({
         Uname,
