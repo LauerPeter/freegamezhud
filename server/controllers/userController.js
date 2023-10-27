@@ -9,14 +9,13 @@ const userController = {
   async signup(req, res) {
     try {
       const { Uname, email, password } = req.body;
-      // Check if the username or email already exists in the database
       const existingUser = await User.findOne({ $or: [{ Uname }, { email }] });
       if (existingUser) {
         return res.status(400).json({ message: 'Username or email already exists.' });
       }
-      // Hash the password
+      //Hash the password
       const hashedPassword = await bcrypt.hash(password, 10); 
-      // Create a new user record with the hashed password
+      //New user record with the hashed password
       const newUser = new User({
         Uname,
         email,
@@ -68,6 +67,16 @@ const userController = {
       res.status(200).json({ message: 'User deleted successfully.' });
     } catch (error) {
       console.error('Error in deleteUser:', error);
+      res.status(500).json({ message: 'Something went wrong.', error: error.message });
+    }
+  },
+
+  async getAllUsers(req, res) {
+    try {
+      const users = await User.find({}, '-password'); // Exclude the password field from the response
+      res.status(200).json(users);
+    } catch (error) {
+      console.error('Error in getAllUsers:', error);
       res.status(500).json({ message: 'Something went wrong.', error: error.message });
     }
   }
