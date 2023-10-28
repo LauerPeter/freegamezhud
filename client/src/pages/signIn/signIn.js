@@ -72,7 +72,6 @@ function SignIn() {
 
   return (
     <Container className="mt-5">
-      <h1 className="text-center mb-4">Welcome to the WEBSITE</h1>
       <Row className="justify-content-center">
         <Col md="6">
           {showSignUp ? (
