@@ -1,9 +1,10 @@
 {
   "name": "my-website",
   "version": "1.0.0",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "dev": "concurrently \"cd server && npm \" \"cd client && npm start\"",
     "install": "cd server && npm install && cd ../client && npm install"
   },
   "dependencies": {

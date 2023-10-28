@@ -14,58 +14,60 @@ function SignIn() {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    const username = e.target.username.value;
+    const Uname = e.target.Uname.value;
     const password = e.target.password.value;
 
-    // Make an API request to the backend for sign-in
-    try {
-      const response = await fetch('/api/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ Uname: username, password }),
-      });
+    const apiUrl = "/api/signin"; // URL to check
+    console.log("API URL for Sign In:", apiUrl);
 
-      if (response.ok) {
-        // Sign-in successful
-        const data = await response.json();
-        // Store the JWT token or perform further actions
+    try {
+      const response = await fetch("/api/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ Uname, password }),
+      });
+      if (response.status === 200) {
+        // Redirect to user dashboard or update UI
       } else {
-        // Handle sign-in failure, e.g., show an error message
+        const data = await response.json();
+        alert(`Sign-in failed: ${data.message}`);
       }
     } catch (error) {
-      // Handle network or other errors
+      console.error("Error:", error);
+      alert("Something went wrong.");
     }
-  };
+  }
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
-    const username = e.target.username.value;
+    const Uname = e.target.Uname.value 
     const password = e.target.password.value;
 
-    // Make an API request to the backend for sign-up
+    const apiUrl = "/api/signup"; // URL to check
+    console.log("API URL for Sign Up:", apiUrl);
+    
     try {
-      const response = await fetch('/api/signup', {
-        method: 'POST',
+      const response = await fetch("/api/signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ Uname: username, email, password }),
+        body: JSON.stringify({ email, Uname, password }),
       });
-
-      if (response.ok) {
-        // Sign-up successful
-        const data = await response.json();
-        // Store the JWT token or perform further actions
+      if (response.status === 201) {
+        alert("Sign-up successful. You can now log in.");
       } else {
-        // Handle sign-up failure, e.g., show an error message
+        const data = await response.json();
+        alert(`Sign-up failed: ${data.message}`);
       }
     } catch (error) {
-      // Handle network or other errors
+      console.error("Error:", error);
+      alert("Something went wrong.");
     }
-  };
+  }
 
 
   return (
@@ -82,7 +84,7 @@ function SignIn() {
                   <Form.Control type="text" placeholder="Email" name="email" />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Control type="text" placeholder="Username" name="username" />
+                  <Form.Control type="text" placeholder="Username" name="Uname" />
                 </Form.Group>
                 <Form.Group>
                   <Form.Control type="password" placeholder="Password" name="password" />
@@ -96,7 +98,7 @@ function SignIn() {
               <h2>Sign In</h2>
               <Form onSubmit={handleSignIn}>
                 <Form.Group>
-                  <Form.Control type="text" placeholder="Username" name="username" />
+                  <Form.Control type="text" placeholder="Username" name="Uname" />
                 </Form.Group>
                 <Form.Group>
                   <Form.Control type="password" placeholder="Password" name="password" />
