@@ -14,7 +14,7 @@ function SignIn() {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    const Uname = e.target.Uname.value;
+    const email = e.target.email.value;
     const password = e.target.password.value;
 
     const apiUrl = "/api/signin"; // URL to check
@@ -26,7 +26,7 @@ function SignIn() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ Uname, password }),
+        body: JSON.stringify({ email, password }),
       });
       if (response.status === 200) {
         // Redirect to user dashboard or update UI
@@ -98,7 +98,7 @@ function SignIn() {
               <h2>Sign In</h2>
               <Form onSubmit={handleSignIn}>
                 <Form.Group>
-                  <Form.Control type="text" placeholder="Username" name="Uname" />
+                  <Form.Control type="text" placeholder="Email" name="email" />
                 </Form.Group>
                 <Form.Group>
                   <Form.Control type="password" placeholder="Password" name="password" />
