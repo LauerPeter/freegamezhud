@@ -16,13 +16,13 @@ function Header() {
             <NavLink exact to="/Home">| Home</NavLink>
           </li>
           <li>
-            <NavLink exact to="/">| tab2</NavLink>
+            <NavLink exact to="/GameList">| Game List</NavLink>
           </li>
           <li>
             <NavLink exact to="/">| tab3</NavLink>
           </li>
           <li>
-            <NavLink exact to="/signIn">| Sign-up</NavLink>
+            <NavLink exact to="/signIn">| Login</NavLink>
           </li>
         </ul>
       </nav>
