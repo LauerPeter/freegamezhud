@@ -6,6 +6,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
+  margin-top: 10px;
 }
 
 .game-item {
@@ -16,10 +17,17 @@
   text-align: center;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  text-decoration: none;
+  background-color: transparent;
+  margin-top: 10px
 }
 
-.game-item {
-  margin: 10px;
+
+.game-item .gameUrl {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .game-item img {
@@ -40,3 +48,4 @@
   font-size: 0.9rem;
   margin-top: 10px;
 }
+

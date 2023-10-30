@@ -7,6 +7,7 @@ import GameList from "./pages/games/gameList";
 import Home from "./pages/home/home"
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import GameDescription from "./pages/games/gameDescrip";
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path='/Home' element={<Home />} />
-          <Route path='/signIn' element={<SignIn />} />
-          <Route path='/GameList' element={<GameList />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/signin' element={<SignIn />} />
+          <Route path='/gameList' element={<GameList />} />
+          <Route path="/game/:id" element={<GameDescription />} />
         </Routes>
         <Footer />
       </div>

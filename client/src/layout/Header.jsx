@@ -13,16 +13,13 @@ function Header() {
         <h1>The Website</h1>
         <ul>
           <li>
-            <NavLink exact to="/Home">| Home</NavLink>
+            <NavLink exact to="/home">| Home</NavLink>
           </li>
           <li>
-            <NavLink exact to="/GameList">| Game List</NavLink>
+            <NavLink exact to="/gamelist">| Game List</NavLink>
           </li>
           <li>
-            <NavLink exact to="/">| tab3</NavLink>
-          </li>
-          <li>
-            <NavLink exact to="/signIn">| Login</NavLink>
+            <NavLink exact to="/signin">| Login</NavLink>
           </li>
         </ul>
       </nav>
