@@ -55,4 +55,5 @@ dbConnection.once('open', () => {
 const userRoutes = require('./routes/api/userRoutes');
 app.use('/api', userRoutes);
 
+
 app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));

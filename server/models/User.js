@@ -21,6 +21,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 6,
   },
+  savedGames: [
+    {
+      type: Number,
+      unique: true,
+    }
+  ]
 });
 
 const User = model('User', userSchema);

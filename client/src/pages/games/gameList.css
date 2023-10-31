@@ -1,27 +1,25 @@
 
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  margin-top: 10px;
+  margin-top: 20px; /* Increased top margin for spacing */
+  background-color: #F5F5F5; /* Lighter background color for contrast */
+  padding: 20px; /* Added padding for a cleaner look */
+  border-radius: 10px; /* Increased border radius for a softer look */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .game-item {
-  flex: 0 0 calc(33.33% - 20px); 
-  border: 1px solid #ccc;
-  padding: 10px;
-  max-width: 300px;
+  border: 1px solid #E0E0E0; /* Lighter border color for a cleaner appearance */
+  padding: 20px;
   text-align: center;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 10px; /* Increased border radius for consistency */
   text-decoration: none;
-  background-color: transparent;
-  margin-top: 10px
+  background-color: white;
 }
-
 
 .game-item .gameUrl {
   max-width: 100%;
@@ -33,42 +31,45 @@
 .game-item img {
   max-width: 100%;
   height: auto;
+  border-radius: 5px; /* Added border radius to images for a more modern look */
 }
 
 .game-item h3 {
-  margin: 0;
-  font-size: 1.2rem;
+  margin: 10px 0; /* Increased top and bottom margin for better spacing */
+  font-size: 1.5rem; /* Larger font size for emphasis */
+  font-weight: bold; /* Added font weight for a bolder appearance */
+  color: #333; /* Darkened text color for better readability */
 }
 
 .game-item .genre {
-  color: #555;
+  color: #777; /* Slightly lighter color for genre text */
+  font-size: 1rem; /* Slightly increased font size */
 }
 
 .game-item .description {
-  font-size: 0.9rem;
+  font-size: 1.1rem; /* Increased font size for better readability */
   margin-top: 10px;
+  color: #555; /* Adjusted text color for description */
 }
 
-/*game description component*/
+/* Updated game description component styles */
 .game-itemD {
-  flex: 0 0 calc(50% - 20px); 
-  border: 1px solid #ccc;
-  padding: 20px; 
-  max-width: 620px; 
-  text-align: center;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2); 
-  border-radius: 10px; 
-  margin: 20px; 
+  border: 1px solid #E0E0E0;
+  padding: 20px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: white;
 }
 
 .genreD {
-  color: #555;
-  font-size: 1rem; 
+  color: #777;
+  font-size: 1.1rem; /* Adjusted font size */
 }
 
 .descriptionD {
-  font-size: 1.2rem; 
-  margin-top: 20px; 
+  font-size: 1.3rem; /* Increased font size for emphasis */
+  margin-top: 20px;
+  color: #555;
 }
 
 .gameUrlD {
@@ -85,9 +86,25 @@
 .game-itemD img {
   max-width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 
 .game-itemD h3 {
-  margin: 0;
-  font-size: 1.5rem; 
+  margin: 10px 0;
+  font-size: 1.8rem; /* Larger font size for a bolder header */
+  font-weight: bold;
+  color: #333;
+}
+
+.save-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-button.saved {
+  background-color: #28a745;
 }

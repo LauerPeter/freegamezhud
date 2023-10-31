@@ -15,9 +15,6 @@ function SignIn() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const apiUrl = "/api/signin"; // URL to check
-    console.log("API URL for Sign In:", apiUrl);
-
     try {
       const response = await fetch("/api/signin", {
         method: "POST",
@@ -27,7 +24,7 @@ function SignIn() {
         body: JSON.stringify({ email, password }),
       });
       if (response.status === 200) {
-        // Redirect to user dashboard or update UI
+        console.log("user signed in")
       } else {
         const data = await response.json();
         alert(`Sign-in failed: ${data.message}`);
@@ -43,9 +40,6 @@ function SignIn() {
     const email = e.target.email.value;
     const Uname = e.target.Uname.value 
     const password = e.target.password.value;
-
-    const apiUrl = "/api/signup"; // URL to check
-    console.log("API URL for Sign Up:", apiUrl);
     
     try {
       const response = await fetch("/api/signup", {
@@ -72,7 +66,7 @@ function SignIn() {
       <div className="row justify-content-center">
         <div className="col-md-6">
           {showSignUp ? (
-            <div>
+            <div className="form-container">
               <h2>Sign Up</h2>
               <form onSubmit={handleSignUp}>
                 <div className="form-group">
@@ -88,7 +82,7 @@ function SignIn() {
               </form>
             </div>
           ) : (
-            <div>
+            <div className="form-container">
               <h2>Sign In</h2>
               <form onSubmit={handleSignIn}>
                 <div className="form-group">
