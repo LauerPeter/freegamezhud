@@ -28,12 +28,12 @@ function GameDescription() {
       {error ? (
         <p>Error: {error}</p>
       ) : game ? (
-        <div className="game-item">
-                   <h3>{game.title}</h3>
-                   <img src={game.thumbnail} alt={game.title} />
-          <div className="genre">{game.genre}</div>
-          <div className="description">{game.description}</div>
-          <div className="gameUrl">
+        <div className="game-itemD">
+          <h3>{game.title}</h3>
+          <img src={game.thumbnail} alt={game.title} />
+          <div className="genreD">{game.genre}</div>
+          <div className="descriptionD">{game.description}</div>
+          <div className="gameUrlD">
             <a href={game.game_url} target="_blank" rel="noopener noreferrer">
               {game.game_url}
             </a>

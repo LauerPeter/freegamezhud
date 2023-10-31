@@ -49,3 +49,45 @@
   margin-top: 10px;
 }
 
+/*game description component*/
+.game-itemD {
+  flex: 0 0 calc(50% - 20px); 
+  border: 1px solid #ccc;
+  padding: 20px; 
+  max-width: 620px; 
+  text-align: center;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2); 
+  border-radius: 10px; 
+  margin: 20px; 
+}
+
+.genreD {
+  color: #555;
+  font-size: 1rem; 
+}
+
+.descriptionD {
+  font-size: 1.2rem; 
+  margin-top: 20px; 
+}
+
+.gameUrlD {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gameUrlD a {
+  text-decoration: none;
+}
+
+.game-itemD img {
+  max-width: 100%;
+  height: auto;
+}
+
+.game-itemD h3 {
+  margin: 0;
+  font-size: 1.5rem; 
+}
