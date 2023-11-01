@@ -10,7 +10,7 @@ function Header() {
   const { isAuthenticated, Uname } = useAuthState();
   console.log('isAuthenticated:', isAuthenticated);
   console.log('Uname:', Uname);
-  
+
   return (
     <header>
       <nav>
@@ -23,9 +23,10 @@ function Header() {
             <NavLink exact to="/gamelist">| Game List</NavLink>
           </li>
           <li>
-            {isAuthenticated ? ( 
+          {isAuthenticated ? ( 
               <>
                 <span>| Welcome, {Uname}</span>
+                <NavLink exact to="/profile">| Profile</NavLink>
               </>
             ) : (
               <NavLink exact to="/signin">| Login</NavLink>

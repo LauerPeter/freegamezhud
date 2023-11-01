@@ -9,6 +9,7 @@ import Header from './layout/Header';
 import Footer from './layout/Footer';
 import GameDescription from "./pages/games/gameDescrip";
 import { AuthProvider } from './context/authContext';
+import UserProfile from "./pages/user/user"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/signin' element={<SignIn />} />
           <Route path='/gameList' element={<GameList />} />
           <Route path="/game/:id" element={<GameDescription />} />
+          <Route path="/profile" element={<UserProfile />} />
         </Routes>
         <Footer />
       </div>

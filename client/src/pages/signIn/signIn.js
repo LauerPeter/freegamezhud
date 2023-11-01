@@ -3,11 +3,14 @@
 import { useState } from "react";
 import './signIn.css';
 import { useAuthDispatch } from '../../context/authContext';
+import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [username, setUsername] = useState('');
+  const [redirectToProfile, setRedirectToProfile] = useState(false);
   const authDispatch = useAuthDispatch();
+  const navigate = useNavigate(); 
 
   const toggleSignUp = () => {
     setShowSignUp(!showSignUp);
@@ -17,7 +20,7 @@ function SignIn() {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-  
+
     try {
       const response = await fetch('/api/signin', {
         method: 'POST',
@@ -26,14 +29,15 @@ function SignIn() {
         },
         body: JSON.stringify({ email, password }),
       });
-      
+
       if (response.status === 200) {
         const userData = await response.json();
-        
+
         if (userData && userData.Uname) {
           setUsername(userData.Uname);
           authDispatch({ type: 'SIGN_IN', payload: { Uname: userData.Uname } });
           console.log('user signed in');
+          setRedirectToProfile(true);
         } else {
           console.log('No Uname found in userData');
         }
@@ -45,6 +49,10 @@ function SignIn() {
       console.error('Error:', error);
       alert('Something went wrong.');
     }
+  }
+
+  if (redirectToProfile) {
+    navigate('/profile');
   }
 
   const handleSignUp = async (e) => {
