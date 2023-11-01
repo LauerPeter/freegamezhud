@@ -49,7 +49,11 @@ const userController = {
         return res.status(401).json({ message: 'Password is incorrect.' });
       }
       console.log('Signin: Authentication successful');
-      res.json({ userId: user._id, message: 'Authentication successful' });
+      res.json({ 
+        userId: user._id, 
+        Uname: user.Uname, 
+        message: 'Authentication successful' 
+      });
     } catch (error) {
       console.error('Error in signin:', error);
       res.status(500).json({ message: 'Something went wrong.', error: error.message });

@@ -1,10 +1,13 @@
 
 
 import { useState } from "react";
-import './signIn.css'
+import './signIn.css';
+import { useAuthDispatch } from '../../context/authContext';
 
 function SignIn() {
   const [showSignUp, setShowSignUp] = useState(false);
+  const [username, setUsername] = useState('');
+  const authDispatch = useAuthDispatch();
 
   const toggleSignUp = () => {
     setShowSignUp(!showSignUp);
@@ -14,33 +17,42 @@ function SignIn() {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-
+  
     try {
-      const response = await fetch("/api/signin", {
-        method: "POST",
+      const response = await fetch('/api/signin', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
+      
       if (response.status === 200) {
-        console.log("user signed in")
+        const userData = await response.json();
+        
+        if (userData && userData.Uname) {
+          setUsername(userData.Uname);
+          authDispatch({ type: 'SIGN_IN', payload: { Uname: userData.Uname } });
+          console.log('user signed in');
+        } else {
+          console.log('No Uname found in userData');
+        }
       } else {
         const data = await response.json();
         alert(`Sign-in failed: ${data.message}`);
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Something went wrong.");
+      console.error('Error:', error);
+      alert('Something went wrong.');
     }
   }
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
-    const Uname = e.target.Uname.value 
+    const Uname = e.target.Uname.value;
     const password = e.target.password.value;
-    
+
     try {
       const response = await fetch("/api/signup", {
         method: "POST",

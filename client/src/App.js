@@ -8,10 +8,12 @@ import Home from "./pages/home/home"
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import GameDescription from "./pages/games/gameDescrip";
+import { AuthProvider } from './context/authContext';
 
 function App() {
   return (
     <Router>
+      <AuthProvider>
       <div>
         <Header />
         <Routes>
@@ -23,6 +25,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
+      </AuthProvider>
     </Router>
   );
 }
