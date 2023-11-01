@@ -3,14 +3,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import './gameList.css'; // Import your CSS file
+import './gameList.css'; 
+import { useAuthState } from '../../context/authContext';
 
 function GameDescription() {
   const { id } = useParams();
+  const { isAuthenticated } = useAuthState();
+  const loggedIn = isAuthenticated;
+
   const [game, setGame] = useState(null);
   const [savedGames, setSavedGames] = useState([]);
   const [error, setError] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,7 +44,7 @@ function GameDescription() {
     }
     // Save the updated list of saved games to local storage
     localStorage.setItem('savedGames', JSON.stringify(updatedSavedGames));
-    setSavedGames(updatedSavedGames); 
+    setSavedGames(updatedSavedGames);
   };
 
   useEffect(() => {
