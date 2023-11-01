@@ -24,7 +24,6 @@ const userSchema = new Schema({
   savedGames: [
     {
       type: Number,
-      unique: true,
     }
   ]
 });
