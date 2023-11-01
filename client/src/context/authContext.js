@@ -1,6 +1,6 @@
 
 
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 const AuthStateContext = createContext();
 const AuthDispatchContext = createContext();
@@ -31,6 +31,14 @@ function authReducer(state, action) {
 
 export function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
+
+  // Check for an existing authentication state in localStorage
+  useEffect(() => {
+    const storedAuthState = localStorage.getItem('authState');
+    if (storedAuthState) {
+      dispatch({ type: 'SIGN_IN', payload: JSON.parse(storedAuthState) });
+    }
+  }, []);
 
   return (
     <AuthStateContext.Provider value={state}>

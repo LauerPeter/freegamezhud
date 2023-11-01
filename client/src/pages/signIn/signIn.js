@@ -36,7 +36,7 @@ function SignIn() {
         if (userData && userData.Uname) {
           setUsername(userData.Uname);
           authDispatch({ type: 'SIGN_IN', payload: { Uname: userData.Uname } });
-          console.log('user signed in');
+          localStorage.setItem('authState', JSON.stringify({ isAuthenticated: true, Uname: userData.Uname }));
           setRedirectToProfile(true);
         } else {
           console.log('No Uname found in userData');
