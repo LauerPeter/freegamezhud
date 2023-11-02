@@ -63,7 +63,8 @@ function GameList() {
   const platforms = ['all', 'pc', 'browser'];
 
   return (
-    <div className="container">
+    <div>
+    <div className='dropdown-menus'>
       <div className="sort-dropdown">
         <label htmlFor="sortOption">Sort by:</label>
         <select id="sortOption" value={sortOption} onChange={handleSortChange}>
@@ -92,23 +93,26 @@ function GameList() {
           ))}
         </select>
       </div>
-      {games.map((game) => (
-        <div className="game-item" key={game.id}>
-          {game.thumbnail && (
-            <Link to={`/game/${game.id}`} className="game-item-link">
-              <img src={game.thumbnail} alt={game.title} />
-            </Link>
-          )}
-          <h3 className="custom-title">{game.title}</h3>
-          <div className="genre custom-genre">{game.genre}</div>
-          <div className="description custom-description">{game.short_description}</div>
-          <div className="gameUrl">
-            <a className="custom-link" href={game.game_url} target="_blank" rel="noopener noreferrer">
-              {game.game_url}
-            </a>
+      </div>
+      <div className="container">
+        {games.map((game) => (
+          <div className="game-item" key={game.id}>
+            {game.thumbnail && (
+              <Link to={`/game/${game.id}`} className="game-item-link">
+                <img src={game.thumbnail} alt={game.title} />
+              </Link>
+            )}
+            <h3 className="custom-title">{game.title}</h3>
+            <div className="genre custom-genre">{game.genre}</div>
+            <div className="description custom-description">{game.short_description}</div>
+            <div className="gameUrl">
+              <a className="custom-link" href={game.game_url} target="_blank" rel="noopener noreferrer">
+                {game.game_url}
+              </a>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
