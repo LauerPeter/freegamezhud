@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import './gameList.css'; 
+import './gameList.css';
 import { useAuthState } from '../../context/authContext';
 
 function GameDescription() {
@@ -70,6 +70,18 @@ function GameDescription() {
           <img src={game.thumbnail} alt={game.title} />
           <div className="genreD">{game.genre}</div>
           <div className="descriptionD">{game.description}</div>
+          <div className="release-dateD">Release Date: {game.release_date}</div>
+          <div className="publisherD">Publisher: {game.publisher}</div>
+          <div className="developerD">Developer: {game.developer}</div>
+          <div className="screenshotsD">
+            {game.screenshots && game.screenshots.length > 0 ? (
+              game.screenshots.map((screenshot, index) => (
+                <img key={screenshot.id} src={screenshot.image} alt={`Screenshot ${index + 1}`} />
+              ))
+            ) : (
+              <p>No screenshots available.</p>
+            )}
+          </div>
           <div className="gameUrlD">
             <a href={game.game_url} target="_blank" rel="noopener noreferrer">
               {game.game_url}
