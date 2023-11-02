@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-const MONGO_URI = 'mongodb://127.0.0.1:27017/user-website';
+const MONGO_URI = 'mongodb://127.0.0.1:27017/freegamezhud';
 
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
