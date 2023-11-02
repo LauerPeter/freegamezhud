@@ -74,7 +74,7 @@ function GameList() {
         </select>
       </div>
       <div className="sort-dropdown">
-        <label htmlFor="categorySort">Sort by Category:</label>
+        <label htmlFor="categorySort">Sort by category:</label>
         <select id="categorySort" value={categorySort} onChange={handleCategorySortChange}>
           {categoriesTags.map((category) => (
             <option key={category} value={category}>
@@ -84,7 +84,7 @@ function GameList() {
         </select>
       </div>
       <div className="sort-dropdown">
-        <label htmlFor="platform">Platform:</label>
+        <label htmlFor="platform">Sort by platform:</label>
         <select id="platform" value={platform} onChange={handlePlatformChange}>
           {platforms.map((p) => (
             <option key={p} value={p}>
