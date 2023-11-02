@@ -1,10 +1,13 @@
 {
-  "name": "freegamezhud",
+  "name": "",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "concurrently \"cd server && npm \" \"cd client && npm start\"",
+    "start:server": "cd server && node server.js",
+    "start:client": "cd client && npm start",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "build:client": "cd client && npm run build",
+    "build": "npm run build:client",
     "install": "cd server && npm install && cd ../client && npm install"
   },
   "dependencies": {
