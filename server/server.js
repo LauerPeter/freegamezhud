@@ -5,11 +5,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
-const dotenv = require('dotenv');
+require('dotenv').config(); 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-dotenv.config();
 
 app.get('/api/game', async (req, res) => {
   const id = req.query.id;
@@ -34,7 +32,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-const MONGO_URI = proccess.env.MONGO_DB_URI;
+const MONGO_URI = process.env.MONGO_DB_URI; 
 
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
@@ -54,6 +52,5 @@ dbConnection.once('open', () => {
 // Routes
 const userRoutes = require('./routes/api/userRoutes');
 app.use('/api', userRoutes);
-
 
 app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
