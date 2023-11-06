@@ -16,6 +16,7 @@ function Header() {
     dispatch({ type: 'SIGN_OUT' });
     // Remove the authentication state from localStorage
     localStorage.removeItem('authState');
+    window.location.href = '/home';
   };
 
   return (
