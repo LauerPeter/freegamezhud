@@ -3,3 +3,17 @@ html,
 body {
   background-color: #F2F4FF;
 }
+
+@media (max-width: 380px) {
+  body {
+    margin: 0; 
+    width: 100%;
+  }
+}
+
+@media (max-width: 250px) {
+  body {
+    margin: 0; 
+    width: 100%;
+  }
+}

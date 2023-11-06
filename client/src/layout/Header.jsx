@@ -3,18 +3,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
-import { useAuthState } from '../context/authContext';
+import { useAuthState, useAuthDispatch} from '../context/authContext';
 
 function Header() {
 
   const { isAuthenticated, Uname } = useAuthState();
+  const dispatch = useAuthDispatch();
   console.log('isAuthenticated:', isAuthenticated);
-  console.log('Uname:', Uname);
+
+  const handleSignOut = () => {
+    // Dispatch the sign-out action
+    dispatch({ type: 'SIGN_OUT' });
+    // Remove the authentication state from localStorage
+    localStorage.removeItem('authState');
+  };
 
   return (
     <header>
       <nav>
-        <h1>The Website</h1>
+        <h1>FreeGamezHud</h1>
         <ul>
           <li>
             <NavLink exact to="/home">| Home</NavLink>
@@ -25,8 +32,9 @@ function Header() {
           <li>
           {isAuthenticated ? ( 
               <>
-                <span>| Welcome, {Uname}</span>
                 <NavLink exact to="/profile">| Profile</NavLink>
+                <span className="welcome-text"> | Welcome, {Uname}</span>
+                <span>| <button onClick={handleSignOut}>Sign Out</button></span>
               </>
             ) : (
               <NavLink exact to="/signin">| Login</NavLink>

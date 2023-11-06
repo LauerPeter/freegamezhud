@@ -53,26 +53,43 @@ function GameDescription() {
   }, []);
 
   return (
-    <div className="container">
+<div className="container">
       {error ? (
         <p>Error: {error}</p>
       ) : game ? (
         <div className="game-itemD">
           <div className="game-header">
             <h3>{game.title}</h3>
-            <button
-              className={`save-button ${savedGames.includes(id) ? 'saved' : ''}`}
-              onClick={saveGame}
-            >
-              {savedGames.includes(id) ? 'Saved' : 'Save Game'}
-            </button>
           </div>
-          <img src={game.thumbnail} alt={game.title} />
+          <div className="img-descripD">
+            <div className="game-image-container">
+              <img src={game.thumbnail} alt={game.title} />
+            </div>
+            <div className="game-details">
+              <div className="game-details-item">
+                Release Date: {game.release_date}
+              </div>
+              <div className="game-details-item">
+                Publisher: {game.publisher}
+              </div>
+              <div className="game-details-item">
+                Developer: {game.developer}
+              </div>
+              <div className="game-details-item">
+                <a href={game.game_url} target="_blank" rel="noopener noreferrer">
+                  {game.game_url}
+                </a>
+              </div>
+              <button
+                className={`save-button ${savedGames.includes(id) ? 'saved' : ''}`}
+                onClick={saveGame}
+              >
+                {savedGames.includes(id) ? 'Saved' : 'Save Game'}
+              </button>
+            </div>
+          </div>
           <div className="genreD">{game.genre}</div>
           <div className="descriptionD">{game.description}</div>
-          <div className="release-dateD">Release Date: {game.release_date}</div>
-          <div className="publisherD">Publisher: {game.publisher}</div>
-          <div className="developerD">Developer: {game.developer}</div>
           <div className="screenshotsD">
             {game.screenshots && game.screenshots.length > 0 ? (
               game.screenshots.map((screenshot, index) => (
@@ -81,11 +98,6 @@ function GameDescription() {
             ) : (
               <p>No screenshots available.</p>
             )}
-          </div>
-          <div className="gameUrlD">
-            <a href={game.game_url} target="_blank" rel="noopener noreferrer">
-              {game.game_url}
-            </a>
           </div>
         </div>
       ) : (
