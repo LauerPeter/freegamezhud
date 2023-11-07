@@ -2,7 +2,7 @@
 
 header {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   position: relative;
   padding: 20px 40px;
@@ -21,18 +21,18 @@ h1 {
 nav {
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+
 }
 
 nav li {
-  margin: 0 20px;
+  margin: 10px 0; 
 }
 
 nav a {
@@ -48,7 +48,45 @@ nav a:hover {
 }
 
 .welcome-text {
-  font-weight: bold; 
-  font-size: 16px; 
-  margin-left: 10px; 
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 10px;
+  color: #ECF0F1;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sign-outBtn {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+    flex-direction: column; 
+    text-align: center; 
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  nav {
+    text-align: center; 
+  }
+
+  nav li {
+    margin: 5px 0;
+  }
+
+  nav a {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .welcome-text {
+    font-size: 14px;
+    margin: 5px 0;
+  }
 }

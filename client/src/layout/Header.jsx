@@ -1,12 +1,11 @@
 
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
-import { useAuthState, useAuthDispatch} from '../context/authContext';
+import { useAuthState, useAuthDispatch } from '../context/authContext';
+import ASCIIArt from './ascArt'; 
 
 function Header() {
-
   const { isAuthenticated, Uname } = useAuthState();
   const dispatch = useAuthDispatch();
   console.log('isAuthenticated:', isAuthenticated);
@@ -21,21 +20,32 @@ function Header() {
 
   return (
     <header>
+      <ASCIIArt />
       <nav>
-        <h1>FreeGamezHud</h1>
         <ul>
           <li>
-            <NavLink exact to="/home">| Home</NavLink>
+            <NavLink exact to="/home">
+              | Home
+            </NavLink>
           </li>
           <li>
-            <NavLink exact to="/gamelist">| Game List</NavLink>
+            <NavLink exact to="/gamelist">
+              | Game List
+            </NavLink>
           </li>
           <li>
-          {isAuthenticated ? ( 
+            {isAuthenticated ? (
               <>
-                <NavLink exact to="/profile">| Profile</NavLink>
-                <span className="welcome-text"> | Welcome, {Uname}</span>
-                <span>| <button onClick={handleSignOut}>Sign Out</button></span>
+                <NavLink exact to="/profile">
+                  | Profile
+                </NavLink>
+                <span className="welcome-text"> | Welcome, {Uname} |</span>
+                <span>
+                  {' '}
+                  <button className="sign-outBtn" onClick={handleSignOut}>
+                    Sign Out
+                  </button>
+                </span>
               </>
             ) : (
               <NavLink exact to="/signin">| Login</NavLink>
@@ -45,6 +55,25 @@ function Header() {
       </nav>
     </header>
   );
-}
+            }  
+
 
 export default Header;
+
+
+
+/* 
+
+
+    ________________  __________  __________    ____________      ___    _______    __________________________   ____    ____ ___     ___ ___
+   / ______/  __   / /  _______/ /  _______/   /  _________ \    /   \   | |  \ \  / / |  _________/_____    /   |  |    |  ||  |    |  ||   \
+  / /_____/  |__| / /  /        /  /          | /         \_|   / __  \  | |   \ \/ /  |  |             /   /    |  |    |  ||  |    |  ||    \
+ / _____/ _______/ /  /______  /  /______     | |   _________  / /  \  \ | |    \  /   |  |_________   /   /     |  |____|  ||  |    |  ||  _  \
+/ /     /  /\  \  /   ______/ /   ______/     | |   |_______ |/ /____\  \| |     \/    |   ________/  /   /      |   ____   ||  |    |  || |_|  |
+ /     /  /  \  \/  /_______ /  /______       |  \_________| | /      \  \ |           |  |_________ /   /______ |  |    |  ||  |____|  ||      /
+/     /__/    \__\ /_______//_________/       \____________| |/        \__\|           |___________/___________/ |__|    |__||__________||____ /
+                                                           |_|
+
+                                                           
+
+*/
