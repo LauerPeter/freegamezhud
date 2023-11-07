@@ -8,8 +8,7 @@ function UserProfile() {
   const savedGames = JSON.parse(localStorage.getItem('savedGames')) || [];
   return (
     <div className="container">
-    <h2>User Profile</h2>
-    <p>Welcome, {Uname}!</p>
+    <h2>{Uname}'s Profile</h2>
     <h3>Saved Games</h3>
     <ul>
       {savedGames.map((gameId) => (

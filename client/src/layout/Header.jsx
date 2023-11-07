@@ -25,12 +25,12 @@ function Header() {
         <ul>
           <li>
             <NavLink exact to="/home">
-              | Home
+               Home
             </NavLink>
           </li>
           <li>
             <NavLink exact to="/gamelist">
-              | Game List
+               Game List
             </NavLink>
           </li>
           <li>
@@ -42,13 +42,13 @@ function Header() {
                 <span className="welcome-text"> | Welcome, {Uname} |</span>
                 <span>
                   {' '}
-                  <button className="sign-outBtn" onClick={handleSignOut}>
+                  <span className="sign-outBtn" onClick={handleSignOut}>
                     Sign Out
-                  </button>
+                  </span>
                 </span>
               </>
             ) : (
-              <NavLink exact to="/signin">| Login</NavLink>
+              <NavLink exact to="/signin"> Login</NavLink>
             )}
           </li>
         </ul>

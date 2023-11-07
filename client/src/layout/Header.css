@@ -25,6 +25,7 @@ nav {
 }
 
 nav ul {
+  list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,10 +57,6 @@ nav a:hover {
   font-size: 20px;
 }
 
-.sign-outBtn {
-  border-radius: 5px;
-  cursor: pointer;
-}
 
 @media (max-width: 768px) {
   header {
