@@ -18,6 +18,7 @@ function UserProfile() {
           details.push(response.data);
         } catch (error) {
           console.error('Axios Error:', error);
+          details.push({ id: gameId, error: error.message });
         }
       }
       setGameDetails(details);
