@@ -68,9 +68,11 @@ function GameList() {
       <div className="sort-dropdown">
         <label htmlFor="sortOption">Sort by:</label>
         <select id="sortOption" value={sortOption} onChange={handleSortChange}>
+          
+          <option value="popularity">Popularity</option>
           <option value="alphabetical">Alphabetical</option>
           <option value="release-date">Release Date</option>
-          <option value="popularity">Popularity</option>
+          
         </select>
       </div>
       <div className="sort-dropdown">

@@ -10,15 +10,18 @@ header {
   border-radius: 10px;
 }
 
+.header-right {
+  text-align: center;
+}
 pre{
-  padding-left: 15px;
+  padding-left: 20px;
   color: #2d3142;
 }
 
 h1 {
   font-size: 36px;
   font-weight: 500;
-  margin-right: 10px;
+  padding-right: 15px;
   color: #2d3142;
 }
 
@@ -62,13 +65,15 @@ a{
 }
 
 .sign-outBtn {
-  color: #2d3142;
-  background-color: #b0d7ff;
-  border-radius: 15%;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 6px;
+
 }
 
-.right-header {
- padding-right: 15px;
+.sign-outBtn:hover{
+  color: #3498DB;
 }
 
 @media (max-width: 768px) {
@@ -79,6 +84,8 @@ a{
 
   h1 {
     font-size: 24px;
+    font-weight: bolder;
+    padding: 0;
   }
 
   nav {
@@ -96,15 +103,25 @@ a{
 
   .welcome-text {
     font-size: 14px;
-    margin: 5px 0;
+    margin: 5px;
   }
 
   ul {
     margin: auto;
     padding: 0;
+    text-align: center;
   }
 
   pre {
     margin: auto;
+    text-align: center;
+    padding: 0%;
+  }
+
+  .sign-outBtn {
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 6px;
   }
 }

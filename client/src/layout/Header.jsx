@@ -8,7 +8,6 @@ import ASCIIArt from './ascArt';
 function Header() {
   const { isAuthenticated, Uname } = useAuthState();
   const dispatch = useAuthDispatch();
-  console.log('isAuthenticated:', isAuthenticated);
 
   const handleSignOut = () => {
     // Dispatch the sign-out action
@@ -25,33 +24,41 @@ function Header() {
         <ul>
           <li>
             <NavLink exact to="/gamelist">
-               Game List
+              Game List
             </NavLink>
           </li>
-          <li>
-            {isAuthenticated ? (
-              <>
+          {isAuthenticated ? (
+            <>
+              <li>
                 <NavLink exact to="/profile">
-                   Profile
+                  Profile
                 </NavLink>
-                <span className="welcome-text"> | Welcome, {Uname} |</span>
-                <span>
-                  {' '}
-                  <button className="sign-outBtn" onClick={handleSignOut}>
-                    Sign Out
-                  </button>
-                </span>
-              </>
-            ) : (
-              <NavLink exact to="/signin"> Login</NavLink>
-            )}
-          </li>
+              </li>
+              <li>
+                <h2 className="sign-outBtn" onClick={handleSignOut}>
+                  Sign Out
+                </h2>
+              </li>
+            </>
+          ) : (
+            <li>
+              <NavLink exact to="/signin">
+                Login
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
-      <h1>FreeGamezHud</h1>
+      <div className="header-right">
+        <h1>FreeGamezHud</h1>
+        {isAuthenticated && (
+          <div className="welcome-text">Welcome, {Uname}</div>
+        )}
+      </div>
     </header>
   );
-            }  
+}
+
 
 
 export default Header;
