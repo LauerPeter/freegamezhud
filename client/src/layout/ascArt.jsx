@@ -1,6 +1,7 @@
 
 
 import React from "react";
+import "./Header.css"
 
 
 function ASCIIArt() {
@@ -12,7 +13,7 @@ ___________________________    ____
 | _________/_______    /  |    |  |
 | |_______| /      \\__/|  |    |  |
 |  _______/ |   _______|  |____|  |
-| |       | |   |_____ /   ____   |
+| |       | |   (_____ /   ____   |
 | |       | |_______/ /|  |    |  |
 |_|       \\__________/ |__|    |__|
     `}
@@ -27,11 +28,7 @@ const asciiArtContainer = {
 
 const asciiArtStyles = {
   fontFamily: 'monospace',
-  backgroundColor: '#3498DB',
-  color: '#ECF0F1',
-  padding: '20px',
   borderRadius: '10px',
-  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
 };
 
 

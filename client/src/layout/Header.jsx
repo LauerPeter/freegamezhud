@@ -15,7 +15,7 @@ function Header() {
     dispatch({ type: 'SIGN_OUT' });
     // Remove the authentication state from localStorage
     localStorage.removeItem('authState');
-    window.location.href = '/home';
+    window.location.href = '/gamelist';
   };
 
   return (
@@ -23,11 +23,6 @@ function Header() {
       <ASCIIArt />
       <nav>
         <ul>
-          <li>
-            <NavLink exact to="/home">
-               Home
-            </NavLink>
-          </li>
           <li>
             <NavLink exact to="/gamelist">
                Game List
@@ -37,14 +32,14 @@ function Header() {
             {isAuthenticated ? (
               <>
                 <NavLink exact to="/profile">
-                  | Profile
+                   Profile
                 </NavLink>
                 <span className="welcome-text"> | Welcome, {Uname} |</span>
                 <span>
                   {' '}
-                  <span className="sign-outBtn" onClick={handleSignOut}>
+                  <button className="sign-outBtn" onClick={handleSignOut}>
                     Sign Out
-                  </span>
+                  </button>
                 </span>
               </>
             ) : (
@@ -53,6 +48,7 @@ function Header() {
           </li>
         </ul>
       </nav>
+      <h1>FreeGamezHud</h1>
     </header>
   );
             }  

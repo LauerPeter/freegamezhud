@@ -4,7 +4,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignIn from "./pages/signIn/signIn";
 import GameList from "./pages/games/gameList";
-import Home from "./pages/home/home"
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import GameDescription from "./pages/games/gameDescrip";
@@ -18,8 +17,7 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<GameList />} />
           <Route path='/signin' element={<SignIn />} />
           <Route path='/gameList' element={<GameList />} />
           <Route path="/game/:id" element={<GameDescription />} />
