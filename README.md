@@ -6,7 +6,9 @@
 
 https://github.com/LauerPeter/freegamezhud/assets/135652706/bb7ab65e-a61a-4439-97f0-3a5abc033184
 
+- please note the pull down tabs do not show up on video
 
+  
 # FreeGamezHud
 
 
@@ -25,9 +27,18 @@ User sign-in and sign-out functionality.
 Personalized welcome message for authenticated users.
 Authentication state managed through a context and stored in local storage.
 
+
 Local Storage:
 Store all your saved games to your profile page.
 Return may return back to the website signed in otherwise can logout when leaving.
+
+
+Sorting Games:
+Sort by: alphabetical, popularity, and release date.
+
+Sort by catagory: 'all', 'mmorpg', 'shooter', 'strategy', 'moba', 'racing', 'sports', 'social', 'sandbox', 'open-world', 'survival', 'pvp', 'pve', 'pixel', 'voxel', 'zombie', 'turn-based', 'first-person', 'third-Person', 'top-down', 'tank', 'space', 'sailing', 'side-scroller', 'superhero', 'permadeath', 'card', 'battle-royale', 'mmo', 'mmofps', 'mmotps', '3d', '2d', 'anime', 'fantasy', 'sci-fi', 'fighting', 'action-rpg', 'action', 'military', 'martial-arts', 'flight', 'low-spec', 'tower-defense', 'horror', 'mmorts'.
+
+Sort by platform: all platforms, pc, browser. 
 
 
 
