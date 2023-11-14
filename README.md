@@ -3,17 +3,11 @@
 
 
 
-Uploading The Website - Google Chrome 2023-11-14 16-20-54.mp4…
-
-
 
 
 
 
 # FreeGamezHud
-
-
-
 
 
 
@@ -33,40 +27,42 @@ Authentication state managed through a context and stored in local storage.
 
 Local Storage:
 Store all your saved games to your profile page.
-
+Return may return back to the website signed in otherwise can logout when leaving.
 
 
 
 ## Usage
 
-
+View hundreds of free games for pc or just on your browser! Easy access to save games to your profile and return to play them at any time! 
 
 
 
 
 ## Technologies
 
-
 React.js
-
-
-
 
 ## Installation
 
-git clone https://github.com/your-username/FreeGamezHud.git
+1. git clone https://github.com/<your-username>/FreeGamezHud.git
 
-npm install 
+2. Please note you will have to configure your own .env file in the client and server directories for your own API key and MongoDB URI, as well as freetogame.com and rapidAPI config for fetching data - 
+REACT_APP_API_URL, 
+REACT_APP_API_KEY, 
+REACT_APP_API_HOST, 
+MONGO_DB_URI
 
-cd server 
+3. npm install 
 
-node server.js
+4. cd server 
 
-cd..
+5. node server.js
 
-cd client
+6. cd..
 
-npm run dev
+7. cd client
+
+8. npm run dev
 
 
 ## License
@@ -75,4 +71,8 @@ npm run dev
 
 
 ## screenshot
+
+
+https://github.com/LauerPeter/freegamezhud/assets/135652706/bb7ab65e-a61a-4439-97f0-3a5abc033184
+
 
